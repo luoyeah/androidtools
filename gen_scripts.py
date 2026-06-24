@@ -124,9 +124,9 @@ def parse_manifest(xml_path, prefix, tag_names):
 
 
 def out_dir():
-    """返回脚本所在目录下的 gen_shell/ 路径，自动创建。"""
+    """返回脚本所在目录下的 out/ 路径，自动创建。"""
     script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
-    d = os.path.join(script_dir, "gen_shell")
+    d = os.path.join(script_dir, "out")
     os.makedirs(d, exist_ok=True)
     return d
 
@@ -190,12 +190,12 @@ def gen_list(outdir, manifest_pkg, matches, label, tag_names, prefix):
     for comp in components:
         cls = comp.split("/", 1)[1]
         lines.append(
-            f'state=$(echo "$DUMP" | grep -F -A 1 "{cls}" | grep -o "enabled=[a-z]*" | head -1)'
+            f'state=$(echo "$DUMP" | grep -F "{cls}" | grep -oE "enabled=[a-z]*|status=[a-z]*" | head -1)'
         )
         lines.append(f'case "$state" in')
-        lines.append(f'  "enabled=true")  echo "ENABLED  {comp}" ;;')
-        lines.append(f'  "enabled=false") echo "DISABLED {comp}" ;;')
-        lines.append(f'  *)               echo "UNKNOWN  {comp}" ;;')
+        lines.append(f'  "enabled=true"|"status=enabled")   echo "ENABLED  {comp}" ;;')
+        lines.append(f'  "enabled=false"|"status=disabled") echo "DISABLED {comp}" ;;')
+        lines.append(f'  *)                                  echo "UNKNOWN  {comp}" ;;')
         lines.append(f'esac')
         lines.append("")
 

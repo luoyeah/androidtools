@@ -13,7 +13,7 @@ build/
 *.swo
 
 # Generated shell scripts
-gen_shell/
+out/
 
 # Git
 .DS_Store

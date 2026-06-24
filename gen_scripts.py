@@ -183,20 +183,20 @@ def gen_list(outdir, manifest_pkg, matches, label, tag_names, prefix):
         f'PKG="{manifest_pkg}"',
         'DUMP=$(dumpsys package "$PKG" 2>/dev/null)',
         "",
+        '# 提取 disabledComponents: 段落后所有缩进的类名',
+        'DISABLED_LIST=$(echo "$DUMP" | sed -n "/disabledComponents:/,/^[a-zA-Z]/p" | grep -E "^[[:space:]]{4,}[a-zA-Z]")',
+        "",
         'echo "=== Component Status ($PKG) ===="',
         "echo",
     ]
 
     for comp in components:
         cls = comp.split("/", 1)[1]
-        lines.append(
-            f'state=$(echo "$DUMP" | grep -F "{cls}" | grep -oE "enabled=[a-z]*|status=[a-z]*" | head -1)'
-        )
-        lines.append(f'case "$state" in')
-        lines.append(f'  "enabled=true"|"status=enabled")   echo "ENABLED  {comp}" ;;')
-        lines.append(f'  "enabled=false"|"status=disabled") echo "DISABLED {comp}" ;;')
-        lines.append(f'  *)                                  echo "UNKNOWN  {comp}" ;;')
-        lines.append(f'esac')
+        lines.append(f'if echo "$DISABLED_LIST" | grep -F -q "{cls}" 2>/dev/null; then')
+        lines.append(f'  echo "DISABLED  {comp}"')
+        lines.append(f'else')
+        lines.append(f'  echo "ENABLED   {comp}"')
+        lines.append(f'fi')
         lines.append("")
 
     path = os.path.join(outdir, filename("list", tag_names, prefix))

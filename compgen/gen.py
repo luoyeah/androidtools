@@ -37,7 +37,7 @@ def parse_args():
     """解析命令行参数，返回 (xml_path, prefix, tag_names)。"""
     args = sys.argv[1:]
     prefix = "com.tencent.mm.plugin.appbrand"
-    tag_names = ["activity"]  # 默认只解析 activity
+    tag_names = ["activity","service","receiver","provider"]  # 默认只解析 activity
     xml_path = None
 
     i = 0
@@ -123,10 +123,10 @@ def parse_manifest(xml_path, prefix, tag_names):
     return manifest_pkg, matches
 
 
-def out_dir():
+def out_dir(manifest_pkg):
     """返回脚本所在目录下的 out/ 路径，自动创建。"""
     script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
-    d = os.path.join(script_dir, "out")
+    d = os.path.join(script_dir, 'shell', manifest_pkg)
     os.makedirs(d, exist_ok=True)
     return d
 
@@ -134,7 +134,7 @@ def out_dir():
 def filename(action, tag_names, prefix):
     """生成文件名: {action}_{types}_{prefix}.sh"""
     types_part = "+".join(tag_names)
-    return f"{action}_{types_part}_{prefix}.sh"
+    return f"{action}_{prefix}.sh"
 
 
 def stats_shell(tag_names, type_counts):
@@ -242,6 +242,10 @@ def main():
     type_counts = {}
     for tag, name in matches:
         type_counts[tag] = type_counts.get(tag, 0) + 1
+        
+    for v_name in VALID_TAGS:
+        if v_name not in type_counts:
+            type_counts[v_name] = 0
 
     print(f"包名: {manifest_pkg}")
     print(f"前缀: {prefix}")
@@ -255,13 +259,13 @@ def main():
     type_labels = [f"{n} {VALID_TAGS[t]}" for t in tag_names for n in [type_counts.get(t, 0)]]
     label = f"{len(matches)} components ({', '.join(f'{type_counts[t]} {VALID_TAGS[t].lower()}s' for t in tag_names)})"
 
-    outdir = out_dir()
+    outdir = out_dir(manifest_pkg)
     print(f"输出目录: {outdir}")
     print("正在生成脚本...")
 
     gen_disable(outdir, manifest_pkg, matches, label, tag_names, prefix, type_counts)
     gen_enable(outdir, manifest_pkg, matches, label, tag_names, prefix, type_counts)
-    gen_list(outdir, manifest_pkg, matches, label, tag_names, prefix, type_counts)
+    #gen_list(outdir, manifest_pkg, matches, label, tag_names, prefix, type_counts)
 
     print("完成。")
 

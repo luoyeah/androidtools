@@ -1,0 +1,226 @@
+{
+    "configVersion": 93,
+    "detailLog": false,
+    "maxLogSize": 512,
+    "forceMountData": true,
+    "aggressiveFilter": false,
+    "templates": {
+        "国内应用": {
+            "isWhitelist": true,
+            "appList": [
+                "com.wuba",
+                "tv.danmaku.bili",
+                "com.magicpoint.mobile.bank",
+                "com.alibaba.android.rimet",
+                "com.autonavi.minimap",
+                "com.haier.uhome.uplus",
+                "com.jingdong.app.mall",
+                "cn.com.spdb.mobilebank.per",
+                "com.mymoney",
+                "com.tencent.mm",
+                "com.taobao.idlefish",
+                "com.xingin.xhs",
+                "com.cmri.universalapp",
+                "com.tencent.android.qqdownloader",
+                "com.unionpay",
+                "com.eg.android.AlipayGphone",
+                "com.ct.client",
+                "com.chinamworld.main",
+                "com.android.bankabc",
+                "mark.via.gp",
+                "youqu.android.todesk"
+            ]
+        }
+    },
+    "scope": {
+        "com.wuba": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "tv.danmaku.bili": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.magicpoint.mobile.bank": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.alibaba.android.rimet": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.autonavi.minimap": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.haier.uhome.uplus": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.jingdong.app.mall": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "cn.com.spdb.mobilebank.per": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.mymoney": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.tencent.mm": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.taobao.idlefish": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.xingin.xhs": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.cmri.universalapp": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.tencent.android.qqdownloader": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.unionpay": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.eg.android.AlipayGphone": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.ct.client": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.chinamworld.main": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "com.android.bankabc": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "mark.via.gp": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        },
+        "youqu.android.todesk": {
+            "aggressiveFilter": false,
+            "useWhitelist": true,
+            "excludeSystemApps": true,
+            "applyTemplates": [
+                "国内应用"
+            ],
+            "extraAppList": []
+        }
+    }
+}
